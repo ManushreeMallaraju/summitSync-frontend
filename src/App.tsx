@@ -12,7 +12,7 @@ import routerProvider, {
   UnsavedChangesNotifier,
   DocumentTitleHandler,
 } from "@refinedev/react-router";
-import { dataProvider } from "./providers/data";
+
 // import { Login } from "./pages/login";
 // import { Register } from "./pages/register";
 // import { ForgotPassword } from "./pages/forgot-password";
@@ -25,8 +25,9 @@ import { ThemeProvider } from "./components/refine-ui/theme/theme-provider";
 import "./App.css";
 import Dashboard from "@/pages/dashboard.tsx";
 import {Home, Mountain} from "lucide-react";
-import TrailsList from "@/pages/trails/list.tsx";
-import TrailsCreate from "@/pages/trails/create.tsx";
+import SubjectsList from "@/pages/subjects/list.tsx";
+import TrailsCreate from "@/pages/subjects/create.tsx";
+import {dataProvider} from "@/providers/data.ts";
 
 
 function App() {
@@ -51,10 +52,10 @@ function App() {
                   meta: { label: 'Home', icon: <Home />}
                 },
                 {
-                  name: 'trails',
-                  list: '/trails',
-                  create: '/trails/create',
-                  meta: { label: 'Trails', icon: <Mountain />}
+                  name: 'subjects',
+                  list: '/subjects',
+                  create: '/subjects/create',
+                  meta: { label: 'Subjects', icon: <Mountain />}
                 }
               ]}
             >
@@ -65,8 +66,8 @@ function App() {
                   </Layout>
                 }>
                   <Route path="/" element={ <Dashboard/>} />
-                  <Route path="trails" >
-                    <Route index element={<TrailsList />} />
+                  <Route path="subjects" >
+                    <Route index element={<SubjectsList />} />
                     <Route path="create" element={<TrailsCreate />} />
                   </Route>
                 </Route>
